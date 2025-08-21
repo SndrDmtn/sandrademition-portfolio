@@ -73,7 +73,7 @@ const services = [
   }
 ];
 
-// Your Google Professional Certificates - GITHUB/VERCEL READY! 🎓✨
+// Your Google Professional Certificates - PRODUCTION READY! 🎓✨
 const certificates = [
   {
     id: 1,
@@ -81,8 +81,7 @@ const certificates = [
     provider: "Google",
     platform: "Coursera", 
     date: "Jun 8, 2020",
-    // You can replace these with your actual certificate images uploaded to your GitHub repo
-    // Example: image: "/certificates/digital-marketing-cert.png"
+    // Replace with your uploaded certificate: "/certificates/digital-marketing-cert.png"
     image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=entropy&auto=format",
     category: "Digital Marketing",
     color: "teal",
@@ -96,8 +95,7 @@ const certificates = [
     provider: "Google",
     platform: "Coursera",
     date: "Jun 16, 2020", 
-    // You can replace these with your actual certificate images uploaded to your GitHub repo
-    // Example: image: "/certificates/ux-design-cert.png"
+    // Replace with your uploaded certificate: "/certificates/ux-design-cert.png"
     image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop&crop=entropy&auto=format",
     category: "UX Design",
     color: "cyan",
@@ -111,8 +109,7 @@ const certificates = [
     provider: "Google", 
     platform: "Coursera",
     date: "Jun 10, 2020",
-    // You can replace these with your actual certificate images uploaded to your GitHub repo
-    // Example: image: "/certificates/project-management-cert.png"
+    // Replace with your uploaded certificate: "/certificates/project-management-cert.png"
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&crop=entropy&auto=format",
     category: "Project Management",
     color: "blue",
@@ -728,7 +725,7 @@ export default function App() {
                   </motion.div>
                 )}
 
-                {/* CERTIFICATES SECTION - PRODUCTION READY! 🏆✨ */}
+                {/* CERTIFICATES SECTION - GITHUB/VERCEL READY! 🏆✨ */}
                 {activeTab === "certificates" && (
                   <motion.div
                     key="certificates"
