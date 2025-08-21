@@ -4,484 +4,357 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandra Demition - Creative Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
         :root {
-          --font-size: 14px;
-          --background: #0a0f0f;
-          --foreground: #ffffff;
-          --card: #1a1a1a;
-          --card-foreground: #ffffff;
-          --primary: #06b6d4;
-          --primary-foreground: #ffffff;
-          --secondary: #1a1a1a;
-          --secondary-foreground: #ffffff;
-          --muted: #2a2a2a;
-          --muted-foreground: #a0a0a0;
-          --accent: #22d3ee;
-          --accent-foreground: #ffffff;
-          --border: rgba(6, 182, 212, 0.2);
-          --input: transparent;
-          --input-background: #1a1a1a;
-          --ring: #06b6d4;
-          
-          /* Teal/Cyan Developer Theme */
-          --teal-400: #2dd4bf;
-          --teal-500: #14b8a6;
-          --teal-600: #0d9488;
-          --teal-900: #134e4a;
-          
-          --cyan-300: #67e8f9;
-          --cyan-400: #22d3ee;
-          --cyan-500: #06b6d4;
-          --cyan-600: #0891b2;
-          
-          /* Supporting Colors */
-          --dev-orange: #fb7185;
-          --dev-blue: #3b82f6;
-          --dev-emerald: #10b981;
-          --dev-gray: #6b7280;
-          --terminal-bg: #0f1419;
-          --window-bg: #1e2832;
-          --border-subtle: rgba(6, 182, 212, 0.1);
-          --text-muted: rgba(255, 255, 255, 0.6);
+            --background: #0a0f0f;
+            --foreground: #ffffff;
+            --primary: #06b6d4;
+            --cyan-400: #22d3ee;
+            --cyan-300: #67e8f9;
+            --teal-400: #2dd4bf;
+            --teal-500: #14b8a6;
+            --teal-600: #0d9488;
+            --dev-blue: #3b82f6;
+            --dev-emerald: #10b981;
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --window-bg: #1e2832;
+            --border-subtle: rgba(6, 182, 212, 0.1);
         }
 
-        /* Base Styles */
         * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        html {
-          font-size: var(--font-size);
-          scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-          background: var(--background);
-          color: var(--foreground);
-          overflow-x: hidden;
-          font-family: 'Inter', sans-serif;
-          line-height: 1.6;
+            background: var(--background);
+            color: var(--foreground);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Typography */
-        h1 {
-          font-size: 4rem;
-          font-weight: 500;
-          line-height: 1.1;
-          font-family: 'Space Grotesk', sans-serif;
-        }
-
-        h2 {
-          font-size: 3rem;
-          font-weight: 500;
-          line-height: 1.2;
-          font-family: 'Space Grotesk', sans-serif;
-        }
-
-        h3 {
-          font-size: 2rem;
-          font-weight: 500;
-          line-height: 1.3;
-          font-family: 'Space Grotesk', sans-serif;
-        }
-
-        h4 {
-          font-size: 1.5rem;
-          font-weight: 500;
-          line-height: 1.4;
-          font-family: 'Space Grotesk', sans-serif;
-        }
-
-        p {
-          font-size: 1rem;
-          font-weight: 400;
-          line-height: 1.6;
-        }
-
-        /* Utility Classes */
-        .hidden { display: none !important; }
+        .hidden { display: none; }
+        
         .code {
-          font-family: 'JetBrains Mono', monospace;
-          font-weight: 500;
-          letter-spacing: 0.3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            letter-spacing: 0.3px;
         }
-
-        .text-muted { color: var(--text-muted); }
-        .text-white { color: white; }
-        .text-cyan-400 { color: var(--cyan-400); }
-        .text-cyan-300 { color: var(--cyan-300); }
-        .text-teal-400 { color: var(--teal-400); }
-
-        /* Background Colors */
-        .bg-teal-400 { background-color: var(--teal-400); }
-        .bg-cyan-400 { background-color: var(--cyan-400); }
-        .bg-blue-400 { background-color: var(--dev-blue); }
-        .bg-emerald-400 { background-color: var(--dev-emerald); }
 
         /* Loading Screen */
         .loading-screen {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: var(--background);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 9999;
-          opacity: 1;
-          transition: opacity 0.5s ease;
-        }
-
-        .loading-screen.fade-out {
-          opacity: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
         }
 
         .loading-content {
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 2rem;
-        }
-
-        .loading-logo {
-          position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
         }
 
         .loading-logo-bg {
-          width: 80px;
-          height: 80px;
-          background: var(--cyan-600);
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2rem;
-          font-weight: bold;
-          color: white;
-          animation: loading-pulse 2s ease-in-out infinite;
-        }
-
-        .loading-text {
-          color: var(--cyan-400);
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            animation: loading-pulse 2s ease-in-out infinite;
         }
 
         .loading-progress {
-          width: 300px;
-          height: 4px;
-          background: rgba(6, 182, 212, 0.2);
-          border-radius: 2px;
-          overflow: hidden;
+            width: 300px;
+            height: 4px;
+            background: rgba(6, 182, 212, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
         }
 
         .loading-bar {
-          width: 0%;
-          height: 100%;
-          background: linear-gradient(90deg, var(--cyan-400), var(--teal-500));
-          animation: loading-progress 2.5s ease-in-out forwards;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyan-400), var(--teal-500));
+            animation: loading-progress 3s ease-in-out forwards;
         }
 
         @keyframes loading-pulse {
-          0%, 100% { 
-            transform: scale(1);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-          }
-          50% { 
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(6, 182, 212, 0.5);
-          }
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 0 40px rgba(6, 182, 212, 0.5);
+            }
         }
 
         @keyframes loading-progress {
-          0% { width: 0%; }
-          100% { width: 100%; }
+            0% { width: 0%; }
+            100% { width: 100%; }
         }
 
         /* Main App */
         .main-app {
-          height: 100vh;
-          width: 100vw;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          opacity: 0;
-          transform: scale(0.95);
-          transition: all 0.8s ease-out;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.8s ease-out;
         }
 
         .main-app.show {
-          opacity: 1;
-          transform: scale(1);
+            opacity: 1;
+            transform: scale(1);
         }
 
-        /* Matrix Rain */
+        /* Matrix Canvas */
         .matrix-canvas {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 1;
-          pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        /* Top Navigation */
+        /* Navigation */
         .top-nav {
-          background: rgba(30, 40, 50, 0.6);
-          backdrop-filter: blur(10px);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 1rem 1.5rem;
-          position: relative;
-          z-index: 50;
-          flex-shrink: 0;
+            background: rgba(30, 40, 50, 0.6);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            position: relative;
+            z-index: 50;
+            flex-shrink: 0;
         }
 
         .nav-brand {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
         }
 
         .brand-logo {
-          width: 32px;
-          height: 32px;
-          border-radius: 8px;
-          background: var(--cyan-600);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-          font-size: 0.875rem;
-          color: white;
-        }
-
-        .brand-text {
-          display: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+            color: white;
         }
 
         .nav-tabs-container {
-          flex: 1;
-          margin: 0 1rem;
+            flex: 1;
+            margin: 0 1rem;
         }
 
         .nav-tabs {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          overflow-x: auto;
-          padding-bottom: 4px;
-          padding: 0 4px;
-          scrollbar-width: none;
-          -ms-overflow-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0 4px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
-        .nav-tabs::-webkit-scrollbar {
-          display: none;
-        }
+        .nav-tabs::-webkit-scrollbar { display: none; }
 
         .nav-tab {
-          flex-shrink: 0;
-          padding: 0.5rem 0.75rem;
-          font-size: 0.875rem;
-          border-radius: 8px;
-          border: none;
-          background: transparent;
-          color: var(--cyan-400);
-          cursor: pointer;
-          transition: all 0.2s ease;
-          white-space: nowrap;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
+            flex-shrink: 0;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--cyan-400);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-tab:hover {
-          color: white;
-          background: rgba(6, 182, 212, 0.1);
-          transform: translateY(-1px);
+            color: white;
+            background: rgba(6, 182, 212, 0.1);
+            transform: translateY(-1px);
         }
 
         .nav-tab.active {
-          background: rgba(6, 182, 212, 0.2);
-          color: var(--cyan-300);
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--cyan-300);
         }
 
-        .nav-tab-label {
-          display: none;
-        }
-
-        /* Status Indicator */
         .status-indicator {
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 6px 12px;
-          border-radius: 16px;
-          font-size: 12px;
-          font-weight: 500;
-          font-family: 'JetBrains Mono', monospace;
-          flex-shrink: 0;
-          background: rgba(6, 182, 212, 0.1);
-          color: var(--cyan-400);
-          border: 1px solid rgba(6, 182, 212, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--cyan-400);
+            border: 1px solid rgba(6, 182, 212, 0.2);
         }
 
         .status-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: currentColor;
-          animation: status-pulse 2s ease-in-out infinite;
-        }
-
-        .status-text {
-          display: none;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            animation: status-pulse 2s ease-in-out infinite;
         }
 
         @keyframes status-pulse {
-          0%, 100% { 
-            opacity: 1;
-            transform: scale(1);
-          }
-          50% { 
-            opacity: 0.7;
-            transform: scale(1.1);
-          }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
         }
 
         /* Main Content */
         .main-content {
-          flex: 1;
-          overflow-y: auto;
-          background: rgba(10, 15, 15, 0.85);
-          backdrop-filter: blur(2px);
-          position: relative;
+            flex: 1;
+            overflow-y: auto;
+            background: rgba(10, 15, 15, 0.85);
+            backdrop-filter: blur(2px);
+            position: relative;
         }
 
         /* Background Elements */
         .background-elements {
-          position: fixed;
-          inset: 0;
-          pointer-events: none;
-          overflow: hidden;
-          z-index: 5;
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 5;
         }
 
         .bg-text-large {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: 18vw;
-          font-weight: bold;
-          opacity: 0.012;
-          user-select: none;
-          font-family: 'Space Grotesk', sans-serif;
-          color: rgba(6, 182, 212, 0.08);
-          letter-spacing: -0.05em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18vw;
+            font-weight: bold;
+            opacity: 0.012;
+            user-select: none;
+            font-family: 'Space Grotesk', sans-serif;
+            color: rgba(6, 182, 212, 0.08);
+            letter-spacing: -0.05em;
         }
 
         /* Content Sections */
         .content-section {
-          display: none;
-          min-height: 100vh;
-          position: relative;
-          z-index: 10;
+            display: none;
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
         }
 
         .content-section.active {
-          display: block;
-          animation: section-enter 0.6s ease-out forwards;
+            display: block;
+            animation: section-enter 0.6s ease-out forwards;
         }
 
         @keyframes section-enter {
-          from {
-            opacity: 0;
-            transform: translateX(300px) scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-          }
+            from {
+                opacity: 0;
+                transform: translateX(300px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
         }
 
         /* Hero Section */
         .hero-section {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          overflow: hidden;
-          min-height: 100vh;
-          padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            padding: 2rem;
         }
 
         .hero-content {
-          max-width: 1200px;
-          margin: 0 auto;
-          text-align: center;
-          position: relative;
-          z-index: 10;
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
         }
 
         /* Terminal Window */
         .terminal-window {
-          max-width: 640px;
-          margin: 0 auto;
-          background: rgba(15, 20, 25, 0.95);
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow: 
-            0 4px 6px -1px rgba(0, 0, 0, 0.1), 
-            0 2px 4px -1px rgba(0, 0, 0, 0.06), 
-            inset 0 1px 0 rgba(6, 182, 212, 0.1);
-          backdrop-filter: blur(8px);
-          animation: terminal-enter 0.6s ease-out forwards;
-        }
-
-        @keyframes terminal-enter {
-          from {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
+            max-width: 640px;
+            margin: 0 auto;
+            background: rgba(15, 20, 25, 0.95);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06), 
+                inset 0 1px 0 rgba(6, 182, 212, 0.1);
+            backdrop-filter: blur(8px);
         }
 
         .terminal-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 12px 16px;
-          background: rgba(30, 40, 50, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(30, 40, 50, 0.9);
         }
 
         .window-controls {
-          display: flex;
-          gap: 8px;
+            display: flex;
+            gap: 8px;
         }
 
         .window-control {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
         }
 
         .window-control.close { background: #ef4444; }
@@ -489,474 +362,215 @@
         .window-control.maximize { background: #22c55e; }
 
         .terminal-title {
-          flex: 1;
-          text-align: center;
+            flex: 1;
+            text-align: center;
         }
 
-        .terminal-spacer {
-          width: 64px;
-        }
+        .terminal-spacer { width: 64px; }
 
         .terminal-body {
-          padding: 1.5rem;
+            padding: 1.5rem;
         }
 
         .terminal-content {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 0.875rem;
-          text-align: left;
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .terminal-line {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .terminal-output {
-          margin-left: 1rem;
-        }
-
-        /* Hero Main Content */
-        .hero-main {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-          animation: hero-content-enter 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes hero-content-enter {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .hero-section-label {
-          animation: fade-in 0.5s ease-out 1s both;
-        }
-
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        .hero-title {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .hero-title h1 {
-          font-size: clamp(2.5rem, 8vw, 7rem);
-          line-height: 1.1;
-          font-weight: bold;
-          margin: 0;
-        }
-
-        .hero-subtitle {
-          font-size: clamp(1.5rem, 4vw, 4rem);
-          color: var(--text-muted);
-          animation: subtitle-enter 0.8s ease-out 6s both;
-        }
-
-        @keyframes subtitle-enter {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .hero-description {
-          max-width: 640px;
-          margin: 0 auto;
-          font-size: clamp(1rem, 2vw, 1.125rem);
-          line-height: 1.6;
-          animation: description-enter 0.8s ease-out 6.5s both;
-        }
-
-        @keyframes description-enter {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .hero-status {
-          display: flex;
-          justify-content: center;
-          animation: status-enter 0.8s ease-out 7s both;
-        }
-
-        @keyframes status-enter {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1rem;
-          max-width: 640px;
-          margin: 0 auto;
-          padding-top: 2rem;
-          animation: skills-enter 0.8s ease-out 7.5s both;
-        }
-
-        @keyframes skills-enter {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .skill-card {
-          background: rgba(30, 40, 50, 0.7);
-          border-radius: 12px;
-          padding: 1rem;
-          transition: all 0.2s ease;
-          backdrop-filter: blur(10px);
-        }
-
-        .skill-card:hover {
-          background: rgba(30, 40, 50, 0.85);
-          transform: translateY(-2px);
-        }
-
-        .skill-header {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          margin-bottom: 0.5rem;
-        }
-
-        .skill-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-        }
-
-        .skill-description {
-          font-size: 0.75rem;
-          color: var(--text-muted);
-          text-align: left;
+            margin-left: 1rem;
         }
 
         /* Text Effects */
         .teal-text-primary {
-          background: linear-gradient(135deg, var(--cyan-400), var(--teal-600));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          background-size: 200% 200%;
-          animation: text-gradient 4s ease-in-out infinite;
+            background: linear-gradient(135deg, var(--cyan-400), var(--teal-600));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: text-gradient 4s ease-in-out infinite;
         }
 
         .teal-text-accent {
-          background: linear-gradient(135deg, var(--cyan-300), var(--teal-500));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          background-size: 200% 200%;
-          animation: text-gradient 4s ease-in-out infinite;
+            background: linear-gradient(135deg, var(--cyan-300), var(--teal-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: text-gradient 4s ease-in-out infinite;
         }
 
         @keyframes text-gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        /* Typing Animation */
-        .typing-cursor {
-          display: inline-block;
-          filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.4));
-          text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
-          animation: cursor-bounce 1.2s ease-in-out infinite;
+        /* Hero Content */
+        .hero-main {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        @keyframes cursor-bounce {
-          0%, 100% { 
-            transform: translateY(0) scale(1) rotate(0deg);
-            filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.4));
-          }
-          25% { 
-            transform: translateY(-3px) scale(1.05) rotate(2deg);
-            filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.5));
-          }
-          50% { 
-            transform: translateY(0) scale(1.1) rotate(0deg);
-            filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.6));
-          }
-          75% { 
-            transform: translateY(-2px) scale(1.05) rotate(-2deg);
-            filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.4));
-          }
+        .hero-title h1 {
+            font-size: clamp(2.5rem, 8vw, 7rem);
+            line-height: 1.1;
+            font-weight: bold;
+            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        /* Section Containers */
-        .about-container,
-        .contact-container {
-          padding: 2rem;
-          max-width: 1200px;
-          margin: 0 auto;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 4rem);
+            color: var(--text-muted);
+            margin-top: 1rem;
         }
 
-        .section-header {
-          text-align: center;
-          margin-bottom: 3rem;
-          animation: section-header-enter 0.6s ease-out 0.2s both;
+        .hero-description {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.6;
+            color: var(--text-muted);
         }
 
-        @keyframes section-header-enter {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            max-width: 640px;
+            margin: 2rem auto 0;
         }
 
-        .section-header h2 {
-          margin-bottom: 1rem;
+        .skill-card {
+            background: rgba(30, 40, 50, 0.7);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .section-header p {
-          max-width: 640px;
-          margin: 0 auto;
+        .skill-card:hover {
+            background: rgba(30, 40, 50, 0.85);
+            transform: translateY(-2px);
         }
 
-        /* Window Styles */
-        .dev-window {
-          background: var(--window-bg);
-          border: 1px solid var(--border-subtle);
-          border-radius: 12px;
-          box-shadow: 
-            0 4px 6px -1px rgba(0, 0, 0, 0.1),
-            0 2px 4px -1px rgba(0, 0, 0, 0.06);
-          backdrop-filter: blur(10px);
-          width: 100%;
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .skill-description {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: left;
+        }
+
+        .bg-teal-400 { background-color: var(--teal-400); }
+        .bg-cyan-400 { background-color: var(--cyan-400); }
+        .bg-blue-400 { background-color: var(--dev-blue); }
+        .bg-emerald-400 { background-color: var(--dev-emerald); }
+
+        .text-teal-400 { color: var(--teal-400); }
+        .text-cyan-400 { color: var(--cyan-400); }
+        .text-blue-400 { color: var(--dev-blue); }
+        .text-emerald-400 { color: var(--dev-emerald); }
+        .text-cyan-300 { color: var(--cyan-300); }
+        .text-white { color: white; }
+
+        /* Simple About/Contact Sections */
+        .section-container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .content-window {
+            background: var(--window-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 800px;
         }
 
         .window-titlebar {
-          display: flex;
-          align-items: center;
-          padding: 12px 16px;
-          border-bottom: 1px solid var(--border-subtle);
-          background: rgba(255, 255, 255, 0.02);
-          border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-subtle);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px 12px 0 0;
         }
 
         .window-title {
-          flex: 1;
-          text-align: center;
+            flex: 1;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
 
-        .window-spacer {
-          width: 64px;
+        .section-content {
+            padding: 1.5rem;
         }
 
-        /* About Content */
-        .about-content {
-          padding: 1.5rem;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          text-align: left;
+        .section-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        .code-comment {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 0.875rem;
-          color: var(--dev-gray);
+        .section-content p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
-        .about-text {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          font-size: 1rem;
-          line-height: 1.6;
-          color: var(--text-muted);
-        }
-
-        /* Contact Content */
-        .contact-content {
-          padding: 1.5rem;
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-        }
-
-        .contact-header h2 {
-          margin-bottom: 1rem;
-        }
-
-        .contact-header p {
-          max-width: 500px;
-          margin: 0 auto;
-        }
-
-        .contact-code {
-          max-width: 600px;
-          margin: 0 auto;
-        }
-
-        .code-block {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 0.875rem;
-          text-align: left;
-          background: rgba(15, 20, 25, 0.9);
-          padding: 1rem;
-          border-radius: 8px;
-        }
-
-        .code-lines {
-          margin-top: 0.75rem;
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-        }
-
-        .syntax-comment { color: var(--dev-gray); }
-        .syntax-keyword { color: var(--cyan-400); }
-        .syntax-string { color: var(--dev-emerald); }
-
-        .contact-buttons {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          max-width: 400px;
-          margin: 0 auto;
-        }
-
-        /* Button */
-        .dev-button {
-          position: relative;
-          overflow: hidden;
-          background: transparent;
-          border: 1px solid var(--border-subtle);
-          font-family: 'Inter', sans-serif;
-          font-weight: 500;
-          border-radius: 8px;
-          transition: all 0.2s ease;
-          cursor: pointer;
-          padding: 0.75rem 2rem;
-          color: var(--teal-400);
-          text-decoration: none;
-          display: inline-block;
-          text-align: center;
-        }
-
-        .dev-button:hover {
-          border-color: rgba(6, 182, 212, 0.4);
-          background: rgba(6, 182, 212, 0.05);
-          transform: translateY(-1px);
-        }
-
-        /* Responsive Design */
-        @media (min-width: 640px) {
-          .nav-tab-label {
-            display: inline;
-          }
-          
-          .brand-text {
-            display: flex;
-          }
-          
-          .status-text {
-            display: inline;
-          }
-          
-          .contact-buttons {
-            flex-direction: row;
-            justify-content: center;
-          }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-          .top-nav {
-            padding: 0.75rem 1rem;
-          }
-          
-          .nav-tabs-container {
-            margin: 0 0.75rem;
-          }
-          
-          .hero-section,
-          .about-container,
-          .contact-container {
-            padding: 1rem;
-          }
-          
-          .terminal-window {
-            margin: 0 1rem;
-          }
-          
-          .skills-grid {
-            grid-template-columns: 1fr;
-          }
+            .top-nav { padding: 0.75rem 1rem; }
+            .hero-section, .section-container { padding: 1rem; }
+            .terminal-window { margin: 0 1rem; }
+            .skills-grid { grid-template-columns: 1fr; }
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-          background: var(--background);
-        }
-
-        ::-webkit-scrollbar-thumb {
-          background: rgba(6, 182, 212, 0.3);
-          border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-          background: rgba(6, 182, 212, 0.5);
-        }
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--background); }
+        ::-webkit-scrollbar-thumb { background: rgba(6, 182, 212, 0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(6, 182, 212, 0.5); }
     </style>
 </head>
 <body>
     <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-content">
-            <div class="loading-logo">
-                <div class="loading-logo-bg">SD</div>
-            </div>
-            <div class="loading-text">
+            <div class="loading-logo-bg">SD</div>
+            <div style="color: var(--cyan-400);">
                 <span class="code">Initializing Sandra Demition Portfolio...</span>
             </div>
             <div class="loading-progress">
@@ -972,36 +586,33 @@
 
         <!-- Top Navigation Bar -->
         <div class="top-nav">
-            <!-- Logo/Brand -->
             <div class="nav-brand">
                 <div class="brand-logo">SD</div>
-                <div class="brand-text">
-                    <span class="code text-xs text-cyan-400">~/sandra-demition</span>
+                <div style="display: none;" class="brand-text">
+                    <span class="code" style="font-size: 0.75rem; color: var(--cyan-400);">~/sandra-demition</span>
                 </div>
             </div>
 
-            <!-- Navigation Tabs -->
             <div class="nav-tabs-container">
                 <div class="nav-tabs">
                     <button class="nav-tab active" data-tab="home">
-                        <span class="nav-tab-icon">🏠</span>
-                        <span class="nav-tab-label">Home</span>
+                        <span>🏠</span>
+                        <span>Home</span>
                     </button>
                     <button class="nav-tab" data-tab="about">
-                        <span class="nav-tab-icon">👤</span>
-                        <span class="nav-tab-label">About</span>
+                        <span>👤</span>
+                        <span>About</span>
                     </button>
                     <button class="nav-tab" data-tab="contact">
-                        <span class="nav-tab-icon">📧</span>
-                        <span class="nav-tab-label">Contact</span>
+                        <span>📧</span>
+                        <span>Contact</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Status -->
             <div class="status-indicator">
                 <div class="status-dot"></div>
-                <span class="status-text">Available</span>
+                <span>Available</span>
             </div>
         </div>
 
@@ -1025,21 +636,21 @@
                                     <div class="window-control maximize"></div>
                                 </div>
                                 <div class="terminal-title">
-                                    <span class="code text-xs text-cyan-400">~/sandra-demition</span>
+                                    <span class="code" style="font-size: 0.75rem; color: var(--cyan-400);">~/sandra-demition</span>
                                 </div>
                                 <div class="terminal-spacer"></div>
                             </div>
                             <div class="terminal-body">
                                 <div class="terminal-content">
                                     <div class="terminal-line">
-                                        <span class="text-cyan-400">$</span>
+                                        <span style="color: var(--cyan-400);">$</span>
                                         <span class="text-white">whoami</span>
                                     </div>
                                     <div class="terminal-output">
-                                        <span id="typing-name" class="text-cyan-300"></span>
+                                        <span id="typing-name" class="text-cyan-300">Sandra Demition</span>
                                     </div>
                                     <div class="terminal-line">
-                                        <span class="text-cyan-400">$</span>
+                                        <span style="color: var(--cyan-400);">$</span>
                                         <span class="text-white">introduction</span>
                                     </div>
                                 </div>
@@ -1048,12 +659,12 @@
 
                         <!-- Main Hero Content -->
                         <div class="hero-main">
-                            <div class="hero-section-label">
-                                <span class="code text-sm uppercase tracking-wider text-cyan-400">HOME</span>
+                            <div style="opacity: 1;">
+                                <span class="code" style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan-400);">HOME</span>
                             </div>
                             
                             <div class="hero-title">
-                                <h1 id="typing-title" class="teal-text-primary font-bold"></h1>
+                                <h1 id="typing-title" class="teal-text-primary">Hi, I'm Sandra Demition</h1>
                                 <div class="hero-subtitle">
                                     a <span class="teal-text-accent">creative developer</span>
                                 </div>
@@ -1065,7 +676,7 @@
                                 strategy, and modern web experiences.
                             </p>
 
-                            <div class="hero-status">
+                            <div style="display: flex; justify-content: center;">
                                 <div class="status-indicator">
                                     <div class="status-dot"></div>
                                     Available for projects
@@ -1077,28 +688,28 @@
                                 <div class="skill-card">
                                     <div class="skill-header">
                                         <div class="skill-dot bg-teal-400"></div>
-                                        <span class="code text-sm text-teal-400">video_editing</span>
+                                        <span class="code text-teal-400" style="font-size: 0.875rem;">video_editing</span>
                                     </div>
                                     <p class="skill-description">Professional video content creation and post-production</p>
                                 </div>
                                 <div class="skill-card">
                                     <div class="skill-header">
                                         <div class="skill-dot bg-cyan-400"></div>
-                                        <span class="code text-sm text-cyan-400">social_media</span>
+                                        <span class="code text-cyan-400" style="font-size: 0.875rem;">social_media</span>
                                     </div>
                                     <p class="skill-description">Strategic social media management and content strategy</p>
                                 </div>
                                 <div class="skill-card">
                                     <div class="skill-header">
                                         <div class="skill-dot bg-blue-400"></div>
-                                        <span class="code text-sm" style="color: var(--dev-blue)">web_design</span>
+                                        <span class="code text-blue-400" style="font-size: 0.875rem;">web_design</span>
                                     </div>
                                     <p class="skill-description">Modern web design and user experience optimization</p>
                                 </div>
                                 <div class="skill-card">
                                     <div class="skill-header">
                                         <div class="skill-dot bg-emerald-400"></div>
-                                        <span class="code text-sm" style="color: var(--dev-emerald)">visual_scripts</span>
+                                        <span class="code text-emerald-400" style="font-size: 0.875rem;">visual_scripts</span>
                                     </div>
                                     <p class="skill-description">Creative visual storytelling and script development</p>
                                 </div>
@@ -1110,8 +721,8 @@
 
             <!-- About Section -->
             <div id="about-section" class="content-section">
-                <div class="about-container">
-                    <div class="dev-window">
+                <div class="section-container">
+                    <div class="content-window">
                         <div class="window-titlebar">
                             <div class="window-controls">
                                 <div class="window-control close"></div>
@@ -1119,39 +730,37 @@
                                 <div class="window-control maximize"></div>
                             </div>
                             <div class="window-title">
-                                <span class="code text-xs text-muted">About.md</span>
+                                <span class="code">About.md</span>
                             </div>
-                            <div class="window-spacer"></div>
+                            <div class="terminal-spacer"></div>
                         </div>
                         
-                        <div class="about-content">
-                            <div class="code-comment">
-                                <span>// Personal Story</span>
+                        <div class="section-content">
+                            <div class="code" style="font-size: 0.875rem; color: #6b7280;">
+                                // Personal Story
                             </div>
                             
                             <h2 class="teal-text-primary">About Sandra</h2>
                             
-                            <div class="about-text">
-                                <p>
-                                    <span class="teal-text-primary">Hi, I'm Sandra!</span> I'm a creative professional with a background in 
-                                    <span class="teal-text-accent">video editing</span>, <span class="teal-text-accent">social media management</span>, 
-                                    and <span class="teal-text-accent">web content design</span>. Over the past few years, I've worked with different 
-                                    brands and agencies across <span class="text-cyan-300">Canada, the US, and Australia</span>, helping them grow their 
-                                    presence online through engaging visuals, campaigns, and storytelling.
-                                </p>
-                                
-                                <p>
-                                    I'm the type of person who enjoys both the <span class="teal-text-accent">creative and technical sides</span> of digital work. 
-                                    Whether it's editing podcasts and videos, designing a Shopify page, or running social media campaigns, I like bringing 
-                                    ideas to life and making content that people connect with.
-                                </p>
-                                
-                                <p>
-                                    I'd say my strengths are being <span class="text-cyan-300">resourceful</span>, <span class="text-cyan-300">adaptable</span>, 
-                                    and <span class="text-cyan-300">always curious</span>. I love learning new tools and trends that make content stand out. 
-                                    At the end of the day, I just enjoy creating things that make an impact, whether it's for a brand, a business, or a community.
-                                </p>
-                            </div>
+                            <p>
+                                <span class="teal-text-primary">Hi, I'm Sandra!</span> I'm a creative professional with a background in 
+                                <span class="teal-text-accent">video editing</span>, <span class="teal-text-accent">social media management</span>, 
+                                and <span class="teal-text-accent">web content design</span>. Over the past few years, I've worked with different 
+                                brands and agencies across <span class="text-cyan-300">Canada, the US, and Australia</span>, helping them grow their 
+                                presence online through engaging visuals, campaigns, and storytelling.
+                            </p>
+                            
+                            <p>
+                                I'm the type of person who enjoys both the <span class="teal-text-accent">creative and technical sides</span> of digital work. 
+                                Whether it's editing podcasts and videos, designing a Shopify page, or running social media campaigns, I like bringing 
+                                ideas to life and making content that people connect with.
+                            </p>
+                            
+                            <p>
+                                I'd say my strengths are being <span class="text-cyan-300">resourceful</span>, <span class="text-cyan-300">adaptable</span>, 
+                                and <span class="text-cyan-300">always curious</span>. I love learning new tools and trends that make content stand out. 
+                                At the end of the day, I just enjoy creating things that make an impact, whether it's for a brand, a business, or a community.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1159,8 +768,8 @@
 
             <!-- Contact Section -->
             <div id="contact-section" class="content-section">
-                <div class="contact-container">
-                    <div class="dev-window">
+                <div class="section-container">
+                    <div class="content-window">
                         <div class="window-titlebar">
                             <div class="window-controls">
                                 <div class="window-control close"></div>
@@ -1168,34 +777,34 @@
                                 <div class="window-control maximize"></div>
                             </div>
                             <div class="window-title">
-                                <span class="code text-xs text-muted">Contact.json</span>
+                                <span class="code">Contact.json</span>
                             </div>
-                            <div class="window-spacer"></div>
+                            <div class="terminal-spacer"></div>
                         </div>
                         
-                        <div class="contact-content">
-                            <div class="contact-header">
-                                <h2 class="teal-text-primary">Let's Connect</h2>
-                                <p class="text-muted">Got an idea in mind? Let's chat about your project and turn it into something amazing together.</p>
-                            </div>
+                        <div class="section-content" style="text-align: center;">
+                            <h2 class="teal-text-primary">Let's Connect</h2>
+                            <p style="max-width: 500px; margin: 0 auto 2rem;">
+                                Got an idea in mind? Let's chat about your project and turn it into something amazing together.
+                            </p>
 
-                            <div class="contact-info">
-                                <div class="code-block contact-code">
-                                    <div class="syntax-comment">// Contact Information</div>
-                                    <div class="code-lines">
-                                        <div><span class="syntax-keyword">email</span>: <span class="syntax-string">"sandrademition@gmail.com"</span></div>
-                                        <div><span class="syntax-keyword">linkedin</span>: <span class="syntax-string">"/in/sandra-demition"</span></div>
-                                        <div><span class="syntax-keyword">status</span>: <span class="syntax-string">"available"</span></div>
-                                        <div><span class="syntax-keyword">response_time</span>: <span class="syntax-string">"24h"</span></div>
+                            <div style="max-width: 600px; margin: 0 auto 2rem;">
+                                <div class="code" style="font-size: 0.875rem; text-align: left; background: rgba(15, 20, 25, 0.9); padding: 1rem; border-radius: 8px;">
+                                    <div style="color: #6b7280;">// Contact Information</div>
+                                    <div style="margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                                        <div><span style="color: var(--cyan-400);">email</span>: <span style="color: var(--dev-emerald);">"sandrademition@gmail.com"</span></div>
+                                        <div><span style="color: var(--cyan-400);">linkedin</span>: <span style="color: var(--dev-emerald);">"/in/sandra-demition"</span></div>
+                                        <div><span style="color: var(--cyan-400);">status</span>: <span style="color: var(--dev-emerald);">"available"</span></div>
+                                        <div><span style="color: var(--cyan-400);">response_time</span>: <span style="color: var(--dev-emerald);">"24h"</span></div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="contact-buttons">
-                                <a href="mailto:sandrademition@gmail.com" class="dev-button">
+                            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                                <a href="mailto:sandrademition@gmail.com" style="padding: 0.75rem 2rem; border: 1px solid var(--border-subtle); background: transparent; color: var(--teal-400); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; display: inline-block; font-family: 'Inter', sans-serif; font-weight: 500;" onmouseover="this.style.borderColor='rgba(6, 182, 212, 0.4)'; this.style.background='rgba(6, 182, 212, 0.05)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.background='transparent'; this.style.transform='translateY(0)'">
                                     📧 Send Email
                                 </a>
-                                <a href="https://www.linkedin.com/in/sandra-demition-8a455b114" target="_blank" class="dev-button">
+                                <a href="https://www.linkedin.com/in/sandra-demition-8a455b114" target="_blank" style="padding: 0.75rem 2rem; border: 1px solid var(--border-subtle); background: transparent; color: var(--teal-400); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; display: inline-block; font-family: 'Inter', sans-serif; font-weight: 500;" onmouseover="this.style.borderColor='rgba(6, 182, 212, 0.4)'; this.style.background='rgba(6, 182, 212, 0.05)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.background='transparent'; this.style.transform='translateY(0)'">
                                     💼 LinkedIn
                                 </a>
                             </div>
@@ -1207,7 +816,7 @@
     </div>
 
     <script>
-        // Portfolio Application JavaScript
+        // CSP-compliant JavaScript - no eval(), no string timeouts
         class PortfolioApp {
             constructor() {
                 this.activeTab = 'home';
@@ -1216,42 +825,34 @@
             }
 
             init() {
-                // Initialize loading screen
                 this.initLoadingScreen();
-                
-                // Initialize Matrix rain
                 this.initMatrixRain();
-                
-                // Initialize navigation
                 this.initNavigation();
-                
-                // Initialize typing animations
-                this.initTypingAnimations();
             }
 
-            // Loading Screen
             initLoadingScreen() {
                 const loadingScreen = document.getElementById('loading-screen');
                 const mainApp = document.getElementById('main-app');
                 
-                // Simulate loading time
-                setTimeout(() => {
-                    loadingScreen.classList.add('fade-out');
-                    setTimeout(() => {
+                // Use arrow function instead of string timeout
+                const hideLoading = () => {
+                    loadingScreen.style.opacity = '0';
+                    const showApp = () => {
                         loadingScreen.style.display = 'none';
                         mainApp.classList.remove('hidden');
                         mainApp.classList.add('show');
                         this.isLoading = false;
-                    }, 500);
-                }, 3000);
+                    };
+                    setTimeout(showApp, 500);
+                };
+                
+                setTimeout(hideLoading, 3000);
             }
 
-            // Matrix Rain Effect
             initMatrixRain() {
                 const canvas = document.getElementById('matrix-canvas');
                 const ctx = canvas.getContext('2d');
 
-                // Set canvas size
                 const resizeCanvas = () => {
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight;
@@ -1260,16 +861,15 @@
                 window.addEventListener('resize', resizeCanvas);
 
                 // Matrix characters
-                const matrixChars = 'アカサタナハマヤラワガザダバパイキシチニヒミリヰギジヂビピウクスツヌフムユルグズヅブプエケセテネヘメレヱゲゼデベペオコソトノホモヨロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>[]{}()+-*/=!@#$%^&*';
+                const matrixChars = 'アカサタナハマヤラワガザダバパイキシチニヒミリギジヂビピウクスツヌフムユルグズヅブプエケセテネヘメレゲゼデベペオコソトノホモヨロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>[]{}()+-*/=!@#$%^&*';
                 const matrix = matrixChars.split('');
 
                 const fontSize = 14;
                 const columns = Math.floor(canvas.width / fontSize);
-                const drops = Array(columns).fill(0);
+                const drops = new Array(columns).fill(0);
 
-                // Draw matrix
                 const drawMatrix = () => {
-                    // Semi-transparent black background for fade effect
+                    // Semi-transparent background for fade effect
                     ctx.fillStyle = 'rgba(10, 15, 15, 0.05)';
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -1277,16 +877,12 @@
                     ctx.font = fontSize + 'px JetBrains Mono, monospace';
 
                     for (let i = 0; i < drops.length; i++) {
-                        // Random character
                         const text = matrix[Math.floor(Math.random() * matrix.length)];
-                        
-                        // x position, y position
                         const x = i * fontSize;
                         const y = drops[i] * fontSize;
 
                         ctx.fillText(text, x, y);
 
-                        // Random reset and opacity
                         if (y > canvas.height && Math.random() > 0.975) {
                             drops[i] = 0;
                         }
@@ -1298,13 +894,11 @@
                 setInterval(drawMatrix, 50);
             }
 
-            // Navigation
             initNavigation() {
                 const navTabs = document.querySelectorAll('.nav-tab');
-                const sections = document.querySelectorAll('.content-section');
-
+                
                 navTabs.forEach(tab => {
-                    tab.addEventListener('click', (e) => {
+                    tab.addEventListener('click', () => {
                         const targetTab = tab.dataset.tab;
                         this.switchTab(targetTab);
                     });
@@ -1323,7 +917,7 @@
                 if (currentTab) currentTab.classList.remove('active');
                 if (newTab) newTab.classList.add('active');
 
-                // Animate section transition
+                // Simple section switching
                 if (currentSection) {
                     currentSection.classList.remove('active');
                 }
@@ -1333,83 +927,16 @@
                 }
 
                 this.activeTab = tabId;
-
-                // Trigger specific animations for certain sections
-                if (tabId === 'home') {
-                    setTimeout(() => this.initTypingAnimations(), 300);
-                }
-            }
-
-            // Typing Animations
-            initTypingAnimations() {
-                // Only run if on home section and not loading
-                if (this.activeTab !== 'home' || this.isLoading) return;
-
-                // Reset typing elements
-                const nameElement = document.getElementById('typing-name');
-                const titleElement = document.getElementById('typing-title');
-                
-                if (nameElement) nameElement.textContent = '';
-                if (titleElement) titleElement.textContent = '';
-
-                // Start name typing
-                setTimeout(() => {
-                    this.typeText('typing-name', 'Sandra Demition', 80);
-                }, 500);
-
-                // Start title typing
-                setTimeout(() => {
-                    this.typeText('typing-title', "Hi, I'm Sandra Demition", 60, true);
-                }, 2000);
-            }
-
-            typeText(elementId, text, speed = 50, withCursor = false) {
-                const element = document.getElementById(elementId);
-                if (!element) return;
-
-                let i = 0;
-                const cursorSymbols = ['🔍', '💡', '⚡', '🎨', '💻'];
-                let currentCursorIndex = 0;
-
-                const typeChar = () => {
-                    if (i < text.length) {
-                        element.textContent = text.slice(0, i + 1);
-                        i++;
-                        setTimeout(typeChar, speed);
-                    } else if (withCursor) {
-                        // Add rotating cursor symbols
-                        this.addRotatingCursor(element, cursorSymbols);
-                    }
-                };
-
-                typeChar();
-            }
-
-            addRotatingCursor(element, symbols) {
-                let currentSymbol = 0;
-                const cursorSpan = document.createElement('span');
-                cursorSpan.className = 'typing-cursor';
-                element.appendChild(cursorSpan);
-
-                const rotateCursor = () => {
-                    cursorSpan.textContent = ' ' + symbols[currentSymbol];
-                    currentSymbol = (currentSymbol + 1) % symbols.length;
-                };
-
-                rotateCursor();
-                setInterval(rotateCursor, 1000);
             }
         }
 
-        // Initialize the application
+        // Initialize when DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
-            // Start the application
             window.portfolioApp = new PortfolioApp();
         });
 
-        // Handle window resize
+        // Handle window resize for matrix canvas
         window.addEventListener('resize', () => {
-            // Reinitialize canvas size for matrix effect
             const canvas = document.getElementById('matrix-canvas');
             if (canvas) {
                 canvas.width = window.innerWidth;
@@ -1417,7 +944,7 @@
             }
         });
 
-        // Keyboard navigation
+        // Simple keyboard navigation
         document.addEventListener('keydown', (e) => {
             const app = window.portfolioApp;
             if (!app || app.isLoading) return;
